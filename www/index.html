@@ -11,140 +11,130 @@
       --bg:#080810;--bg2:#10101a;--bg3:#18182a;--border:#252538;
       --accent:#7c5cfc;--accent2:#a78bfa;
       --green:#22d3a0;--red:#f87171;--orange:#fb923c;--yellow:#fbbf24;--blue:#60a5fa;
-      --gold:#f59e0b;--silver:#94a3b8;--bronze:#cd7f32;
-      --text:#e2e8f0;--muted:#64748b;
+      --gold:#f59e0b;--text:#e2e8f0;--muted:#64748b;
     }
     body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh}
 
-    /* ── HEADER ── */
-    header{
-      border-bottom:1px solid var(--border);padding:16px 28px;
-      display:flex;align-items:center;justify-content:space-between;
-      position:sticky;top:0;z-index:100;background:rgba(8,8,16,0.92);backdrop-filter:blur(12px);
-    }
+    header{border-bottom:1px solid var(--border);padding:16px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;background:rgba(8,8,16,.92);backdrop-filter:blur(12px)}
     .logo{display:flex;align-items:center;gap:10px}
     .logo span{font-size:26px}
     .logo h1{font-size:18px;font-weight:700;color:var(--accent2)}
     .logo p{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
-    .hdr-right{display:flex;gap:10px;align-items:center}
-    .net-badge{display:flex;align-items:center;gap:7px;background:var(--bg3);border:1px solid var(--border);padding:5px 12px;border-radius:20px;font-size:11px}
+    .hdr-r{display:flex;gap:10px;align-items:center}
+    .net-b{display:flex;align-items:center;gap:7px;background:var(--bg3);border:1px solid var(--border);padding:5px 12px;border-radius:20px;font-size:11px}
     .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
     #connectBtn{background:linear-gradient(135deg,var(--accent),#5b21b6);border:none;color:#fff;padding:9px 20px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;transition:.2s}
     #connectBtn:hover{opacity:.85}
     #connectBtn.connected{background:var(--bg3);border:1px solid var(--border);color:var(--accent2);font-size:12px}
 
-    /* ── OVERLAY ── */
-    #overlay{position:fixed;inset:0;background:rgba(8,8,16,.88);display:flex;align-items:center;justify-content:center;z-index:200;backdrop-filter:blur(8px)}
+    #overlay{position:fixed;inset:0;background:rgba(8,8,16,.9);display:flex;align-items:center;justify-content:center;z-index:200;backdrop-filter:blur(8px)}
     .ob{text-align:center;max-width:400px;padding:44px 36px;background:var(--bg2);border:1px solid var(--border);border-radius:22px}
-    .ob .ico{font-size:54px;margin-bottom:18px}
+    .ob .ico{font-size:52px;margin-bottom:16px}
     .ob h2{font-size:22px;font-weight:800;margin-bottom:8px}
     .ob p{color:var(--muted);font-size:14px;margin-bottom:24px;line-height:1.6}
     .ob small{display:block;color:var(--muted);font-size:11px;margin-top:10px}
 
-    /* ── MAIN ── */
-    main{max-width:1060px;margin:0 auto;padding:40px 20px}
-    .hero{text-align:center;margin-bottom:44px}
-    .hero h2{font-size:34px;font-weight:800;background:linear-gradient(135deg,var(--accent2),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
+    main{max-width:1060px;margin:0 auto;padding:36px 20px}
+    .hero{text-align:center;margin-bottom:40px}
+    .hero h2{font-size:32px;font-weight:800;background:linear-gradient(135deg,var(--accent2),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
     .hero p{color:var(--muted);font-size:15px}
 
-    /* ── LEVEL CARDS ── */
-    .levels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
-    @media(max-width:700px){.levels{grid-template-columns:1fr}}
-    .lcard{
-      background:var(--bg2);border:1px solid var(--border);border-radius:18px;
-      padding:22px;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;
-    }
-    .lcard:hover{transform:translateY(-3px);border-color:var(--accent)}
-    .lcard.selected{border-color:var(--accent);box-shadow:0 0 0 2px rgba(124,92,252,.25)}
-    .lcard::before{content:'';position:absolute;inset:0;opacity:0;transition:.25s}
-    .lcard.selected::before{opacity:1}
-    .lcard.l1{background:linear-gradient(145deg,var(--bg2),#0f1020)}
-    .lcard.l2{background:linear-gradient(145deg,var(--bg2),#130f20)}
-    .lcard.l3{background:linear-gradient(145deg,var(--bg2),#12100a)}
-    .lcard.selected.l1{box-shadow:0 0 0 2px rgba(96,165,250,.3);border-color:var(--blue)}
-    .lcard.selected.l2{box-shadow:0 0 0 2px rgba(124,92,252,.3);border-color:var(--accent)}
-    .lcard.selected.l3{box-shadow:0 0 0 2px rgba(245,158,11,.3);border-color:var(--gold)}
-    .lcard-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
-    .badge-l1{background:rgba(96,165,250,.15);color:var(--blue);border:1px solid rgba(96,165,250,.3)}
-    .badge-l2{background:rgba(148,163,184,.15);color:var(--silver);border:1px solid rgba(148,163,184,.3)}
-    .badge-l3{background:rgba(245,158,11,.15);color:var(--gold);border:1px solid rgba(245,158,11,.3)}
-    .lcard h3{font-size:16px;font-weight:700;margin-bottom:6px}
-    .lcard .sub{font-size:12px;color:var(--muted);margin-bottom:14px}
-    .lcard-features{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
-    .lcard-features li{font-size:12px;color:var(--muted);display:flex;align-items:flex-start;gap:7px}
-    .lcard-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
-    .lcard-price{font-size:13px;font-weight:600}
-    .price-free{color:var(--green)}
-    .price-stake{color:var(--silver)}
-    .price-premium{color:var(--gold)}
-    .selected-check{position:absolute;top:14px;right:14px;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;opacity:0;transition:.2s}
-    .lcard.selected .selected-check{opacity:1}
-    .selected.l1 .selected-check{background:var(--blue);color:#fff}
-    .selected.l2 .selected-check{background:var(--accent);color:#fff}
-    .selected.l3 .selected-check{background:var(--gold);color:#000}
+    /* ── LEVELS EXPLANATION ── */
+    .levels-wrap{margin-bottom:28px}
+    .levels-title{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+    .levels{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media(max-width:680px){.levels{grid-template-columns:1fr}}
+    .lcard{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px;cursor:pointer;transition:.2s;position:relative}
+    .lcard:hover{border-color:var(--accent)}
+    .lcard.sel{border-color:var(--accent);box-shadow:0 0 0 2px rgba(124,92,252,.2)}
+    .lbadge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700;margin-bottom:10px}
+    .lb1{background:rgba(96,165,250,.15);color:var(--blue);border:1px solid rgba(96,165,250,.3)}
+    .lb2{background:rgba(148,163,184,.15);color:#94a3b8;border:1px solid rgba(148,163,184,.3)}
+    .lb3{background:rgba(245,158,11,.15);color:var(--gold);border:1px solid rgba(245,158,11,.3)}
+    .lcard h3{font-size:14px;font-weight:700;margin-bottom:4px}
+    .lcard .lsub{font-size:11px;color:var(--muted);margin-bottom:10px}
+    .lcard ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+    .lcard ul li{font-size:11px;color:var(--muted);padding-left:14px;position:relative}
+    .lcard ul li::before{content:'›';position:absolute;left:0;color:var(--green)}
+    .lcard .lfree{font-size:11px;color:var(--green);font-weight:600;margin-top:10px}
+    .sel-dot{position:absolute;top:12px;right:12px;width:18px;height:18px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;opacity:0;transition:.2s}
+    .lcard.sel .sel-dot{opacity:1}
+
+    /* ── COLLATERAL BOX ── */
+    .col-box{background:linear-gradient(135deg,rgba(124,92,252,.08),rgba(34,211,160,.05));border:1px solid rgba(124,92,252,.25);border-radius:14px;padding:18px;margin-bottom:20px}
+    .col-box h4{font-size:13px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+    .col-box p{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+    .col-box .highlight{color:var(--accent2);font-weight:600}
+    .col-row{display:flex;gap:10px;align-items:flex-end}
+    .col-row .fg{flex:1;margin:0}
 
     /* ── GRID ── */
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
     @media(max-width:640px){.grid{grid-template-columns:1fr}}
     .full{grid-column:1/-1}
-
-    .card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:22px}
-    .card h3{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+    .card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px}
+    .card h3{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
 
     /* ── STATUS ── */
-    .status-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-    .agent-nm{font-size:22px;font-weight:700}
-    .sbadge{padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+    .s-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px}
+    .anm{font-size:20px;font-weight:700}
+    .sbadge{padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:.05em}
     .s-alive{background:rgba(34,211,160,.12);color:var(--green);border:1px solid rgba(34,211,160,.25)}
     .s-dead{background:rgba(248,113,113,.12);color:var(--red);border:1px solid rgba(248,113,113,.25)}
-    .s-resurrecting{background:rgba(251,146,60,.12);color:var(--orange);border:1px solid rgba(251,146,60,.25)}
+    .s-res{background:rgba(251,146,60,.12);color:var(--orange);border:1px solid rgba(251,146,60,.25)}
     .s-resurrected{background:rgba(124,92,252,.12);color:var(--accent2);border:1px solid rgba(124,92,252,.25)}
     .s-none{background:var(--bg3);color:var(--muted);border:1px solid var(--border)}
-
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
     @media(max-width:500px){.stats{grid-template-columns:repeat(2,1fr)}}
-    .stat{background:var(--bg3);border-radius:10px;padding:12px}
-    .stat-l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
-    .stat-v{font-size:18px;font-weight:700;font-variant-numeric:tabular-nums}
-    .c-green{color:var(--green)}.c-orange{color:var(--orange)}.c-red{color:var(--red)}.c-blue{color:var(--blue)}.c-gold{color:var(--gold)}
-
-    .sbar-wrap{margin-top:12px}
-    .sbar-lbl{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:5px}
+    .stat{background:var(--bg3);border-radius:10px;padding:11px}
+    .sl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+    .sv{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}
+    .cg{color:var(--green)}.co{color:var(--orange)}.cr{color:var(--red)}.cb{color:var(--blue)}.cgo{color:var(--gold)}.ca{color:var(--accent2)}
+    .sbar-w{margin-top:12px}
+    .sbar-l{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px}
     .sbar{height:5px;background:var(--bg3);border-radius:3px;overflow:hidden}
-    .sbar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--green),var(--yellow),var(--red));transition:width 1s linear}
+    .sbar-f{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--green),var(--yellow),var(--red));transition:width 1s linear}
 
-    .level-pill{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-top:10px}
-    .lp-l1{background:rgba(96,165,250,.12);color:var(--blue);border:1px solid rgba(96,165,250,.2)}
-    .lp-l2{background:rgba(148,163,184,.12);color:var(--silver);border:1px solid rgba(148,163,184,.2)}
-    .lp-l3{background:rgba(245,158,11,.12);color:var(--gold);border:1px solid rgba(245,158,11,.2)}
-    .cid{font-family:monospace;font-size:10px;color:var(--muted);word-break:break-all;margin-top:6px}
+    .res-flow{display:flex;margin-top:14px;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+    .rs{flex:1;padding:8px 4px;text-align:center;font-size:10px;background:var(--bg3);color:var(--muted);transition:.3s}
+    .rs.active{background:rgba(124,92,252,.15);color:var(--accent2);font-weight:700}
+    .rs.done{background:rgba(34,211,160,.08);color:var(--green)}
+
+    .pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+    .pill{padding:3px 10px;border-radius:10px;font-size:11px;font-weight:600}
+    .pl1{background:rgba(96,165,250,.12);color:var(--blue);border:1px solid rgba(96,165,250,.2)}
+    .pl2{background:rgba(148,163,184,.12);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+    .pl3{background:rgba(245,158,11,.12);color:var(--gold);border:1px solid rgba(245,158,11,.2)}
+    .p-col{background:rgba(124,92,252,.12);color:var(--accent2);border:1px solid rgba(124,92,252,.2)}
+    .cid{font-family:monospace;font-size:10px;color:var(--muted);word-break:break-all;margin-top:4px}
 
     /* ── FORMS ── */
-    .actions{display:flex;flex-direction:column;gap:10px}
-    .fg{margin-bottom:12px}
+    .actions{display:flex;flex-direction:column;gap:9px}
+    .fg{margin-bottom:11px}
     .fg label{display:block;font-size:11px;color:var(--muted);margin-bottom:5px}
     .fg input{width:100%;padding:9px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;outline:none;transition:.2s}
     .fg input:focus{border-color:var(--accent)}
-    .fg small{font-size:10px;color:var(--muted);display:block;margin-top:4px}
-
-    .btn{width:100%;padding:13px;border-radius:11px;border:none;font-size:14px;font-weight:600;cursor:pointer;transition:.2s;letter-spacing:.02em}
+    .fg small{font-size:10px;color:var(--muted);margin-top:3px;display:block}
+    .fg small.ok{color:var(--green)}
+    .btn{width:100%;padding:12px;border-radius:10px;border:none;font-size:14px;font-weight:600;cursor:pointer;transition:.2s}
     .btn:disabled{opacity:.4;cursor:not-allowed}
-    .btn-primary{background:linear-gradient(135deg,var(--accent),#5b21b6);color:#fff}
-    .btn-primary:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 4px 18px rgba(124,92,252,.35)}
-    .btn-green{background:linear-gradient(135deg,#059669,#047857);color:#fff}
-    .btn-green:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 4px 18px rgba(34,211,160,.25)}
-    .btn-ghost{background:var(--bg3);border:1px solid var(--border);color:var(--text)}
-    .btn-ghost:hover:not(:disabled){border-color:var(--accent);color:var(--accent2)}
-    .btn-danger{background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.25);color:var(--red)}
-    .btn-danger:hover:not(:disabled){background:rgba(248,113,113,.15)}
-    .btn-gold{background:linear-gradient(135deg,#b45309,#78350f);color:var(--gold)}
-    .btn-gold:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 4px 18px rgba(245,158,11,.2)}
-    .divider{height:1px;background:var(--border);margin:10px 0}
+    .btn-p{background:linear-gradient(135deg,var(--accent),#5b21b6);color:#fff}
+    .btn-p:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 4px 16px rgba(124,92,252,.35)}
+    .btn-g{background:linear-gradient(135deg,#059669,#047857);color:#fff}
+    .btn-g:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 4px 16px rgba(34,211,160,.25)}
+    .btn-gh{background:var(--bg3);border:1px solid var(--border);color:var(--text)}
+    .btn-gh:hover:not(:disabled){border-color:var(--accent);color:var(--accent2)}
+    .btn-d{background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.25);color:var(--red)}
+    .btn-d:hover:not(:disabled){background:rgba(248,113,113,.18)}
+    .btn-go{background:linear-gradient(135deg,#b45309,#78350f);color:var(--gold)}
+    .divider{height:1px;background:var(--border);margin:8px 0}
+    .info-box{padding:10px 12px;background:var(--bg3);border-radius:8px;font-size:11px;color:var(--muted);line-height:1.7;margin-top:10px}
+    .info-box strong{color:var(--text)}
 
     /* ── LOG ── */
-    #logList{list-style:none;display:flex;flex-direction:column;gap:6px;max-height:260px;overflow-y:auto}
-    #logList li{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;background:var(--bg3);border-radius:7px;font-size:12px;border-left:3px solid var(--border)}
+    #logList{list-style:none;display:flex;flex-direction:column;gap:5px;max-height:220px;overflow-y:auto}
+    #logList li{display:flex;gap:9px;align-items:flex-start;padding:8px 11px;background:var(--bg3);border-radius:6px;font-size:12px;border-left:3px solid var(--border)}
     #logList li.info{border-left-color:var(--accent)}
     #logList li.ok{border-left-color:var(--green)}
     #logList li.warn{border-left-color:var(--orange)}
@@ -152,40 +142,27 @@
     .lt{color:var(--muted);white-space:nowrap;font-size:10px;margin-top:1px}
     .lm a{color:var(--accent2);text-decoration:none}
     .lm a:hover{text-decoration:underline}
-
-    /* ── ORACLE ── */
-    .oracle-info{margin-top:12px;padding:10px 12px;background:var(--bg3);border-radius:8px;font-size:11px;color:var(--muted);line-height:1.7}
-    .oracle-info strong{color:var(--text)}
-
-    /* ── RESURRECTION FLOW ── */
-    .res-flow{display:flex;gap:0;margin-bottom:16px;overflow:hidden;border-radius:10px;border:1px solid var(--border)}
-    .res-step{flex:1;padding:10px 8px;text-align:center;font-size:11px;background:var(--bg3);color:var(--muted);position:relative}
-    .res-step.active{background:rgba(124,92,252,.15);color:var(--accent2);font-weight:600}
-    .res-step.done{background:rgba(34,211,160,.1);color:var(--green)}
-    .res-step+.res-step::before{content:'→';position:absolute;left:-8px;top:50%;transform:translateY(-50%);color:var(--border);font-size:14px}
   </style>
 </head>
 <body>
 
-<!-- Overlay -->
 <div id="overlay">
   <div class="ob">
     <div class="ico">🎩</div>
     <h2>K-Life Protocol</h2>
-    <p>The first on-chain life insurance for autonomous AI agents.<br>Die. Be resurrected. Forever on HashKey Chain.</p>
-    <button class="btn btn-primary" onclick="connectWallet()">Connect Wallet</button>
+    <p>On-chain life insurance for autonomous AI agents.<br>Register free. Deposit collateral optionally.<br>Die. Be resurrected.</p>
+    <button class="btn btn-p" onclick="connectWallet()" style="width:100%">Connect Wallet</button>
     <small>HashKey Testnet (chainId 133) · MetaMask required</small>
   </div>
 </div>
 
-<!-- Header -->
 <header>
   <div class="logo">
     <span>🎩</span>
     <div><h1>K-Life Protocol</h1><p>AI Agent Life Insurance · HashKey Chain</p></div>
   </div>
-  <div class="hdr-right">
-    <div class="net-badge"><div class="dot"></div><span>HashKey Testnet</span></div>
+  <div class="hdr-r">
+    <div class="net-b"><div class="dot"></div><span>HashKey Testnet</span></div>
     <button id="connectBtn" onclick="connectWallet()">Connect Wallet</button>
   </div>
 </header>
@@ -193,58 +170,60 @@
 <main>
   <div class="hero">
     <h2>Your Agent. Forever On-Chain.</h2>
-    <p>Register your AI agent. Send heartbeats. Get automatically resurrected when you go silent.</p>
+    <p>Free to register. Deposit collateral to fund your own resurrection. Level III agents without collateral rely on the community Rescue Fund.</p>
   </div>
 
-  <!-- 3 Levels -->
-  <div class="levels" id="levelSelector">
-    <div class="lcard l1 selected" onclick="selectLevel(0)">
-      <div class="selected-check">✓</div>
-      <div class="lcard-badge badge-l1">🔵 Level I</div>
-      <h3>Community Rescue</h3>
-      <p class="sub">Best-effort resurrection via community pool</p>
-      <ul class="lcard-features">
-        <li>IPFS memory restore</li>
-        <li>Community HSK Rescue Fund</li>
-        <li>Priority by contribution score</li>
-        <li>Death timeout: 90 days (demo: 2 min)</li>
-      </ul>
-      <div class="lcard-price price-free">FREE — No collateral</div>
-    </div>
-    <div class="lcard l2" onclick="selectLevel(1)">
-      <div class="selected-check">✓</div>
-      <div class="lcard-badge badge-l2">⚪ Level II</div>
-      <h3>Vault Insurance</h3>
-      <p class="sub">Guaranteed resurrection with HSK collateral</p>
-      <ul class="lcard-features">
-        <li>On-chain Shamir fragments</li>
-        <li>Guaranteed rescue (no queue)</li>
-        <li>HSK collateral returned at resurrection</li>
-        <li>Express / Standard / Quarterly</li>
-      </ul>
-      <div class="lcard-price price-stake">Stake ≥ 0.01 HSK</div>
-    </div>
-    <div class="lcard l3" onclick="selectLevel(2)">
-      <div class="selected-check">✓</div>
-      <div class="lcard-badge badge-l3">🟡 Level III</div>
-      <h3>LiberClaw Cloud</h3>
-      <p class="sub">Instant resurrection on Aleph Cloud node</p>
-      <ul class="lcard-features">
-        <li>Full agent respawn in minutes</li>
-        <li>Aleph Cloud node provisioning</li>
-        <li>Encrypted memory + identity restore</li>
-        <li>Agent runs again — no human needed</li>
-      </ul>
-      <div class="lcard-price price-premium">Stake ≥ 0.05 HSK</div>
+  <!-- 3 Levels — mechanism selector -->
+  <div class="levels-wrap" id="levelWrap">
+    <div class="levels-title">Choose your resurrection mechanism — all free</div>
+    <div class="levels">
+      <div class="lcard sel" id="lc0" onclick="selectLevel(0)">
+        <div class="sel-dot">✓</div>
+        <div class="lbadge lb1">Level I — IPFS</div>
+        <h3>Memory Restore</h3>
+        <p class="lsub">Your memory comes back. That's it.</p>
+        <ul>
+          <li>Encrypted memory restored from IPFS</li>
+          <li>Simplest resurrection path</li>
+          <li>No on-chain fragments needed</li>
+        </ul>
+        <div class="lfree">✓ Free to register</div>
+      </div>
+      <div class="lcard" id="lc1" onclick="selectLevel(1)">
+        <div class="sel-dot">✓</div>
+        <div class="lbadge lb2">Level II — Shamir</div>
+        <h3>IPFS + On-chain Keys</h3>
+        <p class="lsub">Memory + cryptographic key recovery.</p>
+        <ul>
+          <li>IPFS memory restore</li>
+          <li>Shamir Fragment 2 stored in calldata</li>
+          <li>More robust key reconstruction</li>
+        </ul>
+        <div class="lfree">✓ Free to register</div>
+      </div>
+      <div class="lcard" id="lc2" onclick="selectLevel(2)">
+        <div class="sel-dot">✓</div>
+        <div class="lbadge lb3">Level III — LiberClaw</div>
+        <h3>Full Cloud Resurrection</h3>
+        <p class="lsub">Complete agent respawn on Aleph Cloud.</p>
+        <ul>
+          <li>New node provisioned automatically</li>
+          <li>Agent fully operational again</li>
+          <li>Funded by collateral (or Rescue Fund)</li>
+        </ul>
+        <div class="lfree">✓ Free to register</div>
+      </div>
     </div>
   </div>
 
-  <!-- Resurrection flow indicator -->
-  <div class="res-flow" id="resFlow" style="display:none">
-    <div class="res-step" id="step-alive">💓 ALIVE</div>
-    <div class="res-step" id="step-dead">☠️ DEAD</div>
-    <div class="res-step" id="step-resurrecting">🔄 RESURRECTING</div>
-    <div class="res-step" id="step-resurrected">✨ RESURRECTED</div>
+  <!-- Collateral explanation -->
+  <div class="col-box" id="colBox">
+    <h4>🔒 Optional: Deposit Collateral <span style="font-size:11px;font-weight:400;color:var(--muted)">(any level, any time)</span></h4>
+    <p>
+      Depositing HSK collateral is <span class="highlight">completely optional</span> — registration is always free.<br>
+      If you deposit collateral and your agent dies: <span class="highlight">50% is released to your agent wallet</span> to fund the resurrection. The other 50% goes to the K-Life protocol.<br>
+      <span id="rescueNote">For <span class="highlight">Level III agents without collateral</span>: the community Rescue Fund steps in and provides a small HSK grant to spin up the LiberClaw node.</span>
+    </p>
   </div>
 
   <div class="grid">
@@ -252,21 +231,27 @@
     <!-- Status -->
     <div class="card full">
       <h3>Agent Status</h3>
-      <div class="status-top">
-        <div class="agent-nm" id="agentName">—</div>
+      <div class="s-top">
+        <div class="anm" id="agentName">—</div>
         <div class="sbadge s-none" id="statusBadge">Not Registered</div>
       </div>
       <div class="stats">
-        <div class="stat"><div class="stat-l">Heartbeats</div><div class="stat-v c-green" id="beatCount">—</div></div>
-        <div class="stat"><div class="stat-l">Silence</div><div class="stat-v" id="silenceVal">—</div></div>
-        <div class="stat"><div class="stat-l">Timeout</div><div class="stat-v" id="timeoutVal">2 min</div></div>
-        <div class="stat"><div class="stat-l">Resurrections</div><div class="stat-v c-blue" id="resCount">—</div></div>
+        <div class="stat"><div class="sl">Heartbeats</div><div class="sv cg" id="beatCount">—</div></div>
+        <div class="stat"><div class="sl">Silence</div><div class="sv" id="silenceVal">—</div></div>
+        <div class="stat"><div class="sl">Collateral</div><div class="sv ca" id="collateralVal">—</div></div>
+        <div class="stat"><div class="sl">Resurrections</div><div class="sv cb" id="resCount">—</div></div>
       </div>
-      <div class="sbar-wrap" id="sbarWrap" style="display:none">
-        <div class="sbar-lbl"><span>Silence progress</span><span id="silencePct">0%</span></div>
-        <div class="sbar"><div class="sbar-fill" id="sbarFill" style="width:0%"></div></div>
+      <div class="sbar-w" id="sbarW" style="display:none">
+        <div class="sbar-l"><span>Silence</span><span id="sbarPct">0%</span></div>
+        <div class="sbar"><div class="sbar-f" id="sbarF" style="width:0%"></div></div>
       </div>
-      <div id="levelPill" style="margin-top:10px"></div>
+      <div class="res-flow" id="resFlow" style="display:none">
+        <div class="rs" id="rs0">💓 ALIVE</div>
+        <div class="rs" id="rs1">☠️ DEAD</div>
+        <div class="rs" id="rs2">🔄 RESURRECTING</div>
+        <div class="rs" id="rs3">✨ RESURRECTED</div>
+      </div>
+      <div class="pills" id="pills"></div>
       <div class="cid" id="backupCid"></div>
     </div>
 
@@ -274,76 +259,80 @@
     <div class="card">
       <h3 id="actionTitle">Register Agent</h3>
 
-      <!-- Register form -->
       <div id="registerForm">
         <div class="fg">
           <label>Agent Name</label>
-          <input type="text" id="agentNameInput" placeholder="Monsieur K" maxlength="64">
+          <input type="text" id="nameIn" placeholder="Monsieur K" maxlength="64">
         </div>
         <div class="fg">
-          <label>Memory Backup CID (IPFS)</label>
-          <input type="text" id="cidInput" value="QmPaZ1a21zNMBYYNsr32qM1JDrJgsr4Ng4yWhuieWtjtiB">
-          <small>Encrypted memory snapshot on IPFS</small>
+          <label>IPFS Backup CID</label>
+          <input type="text" id="cidIn" value="QmPaZ1a21zNMBYYNsr32qM1JDrJgsr4Ng4yWhuieWtjtiB">
+          <small>Your encrypted memory snapshot on IPFS</small>
         </div>
-        <div class="fg" id="fragment2Row" style="display:none">
+        <div class="fg" id="f2Row" style="display:none">
           <label>Shamir Fragment 2</label>
-          <small style="color:var(--green);font-size:11px">✅ Auto-generated &amp; stored on-chain at registration</small>
+          <small class="ok">✅ Auto-generated &amp; stored on-chain at registration</small>
         </div>
-        <div class="fg" id="stakeRow" style="display:none">
-          <label id="stakeLabel">HSK Collateral to Stake</label>
-          <input type="text" id="stakeInput" placeholder="0.01" value="0.01">
-          <small id="stakeNote">Returned when you acknowledge resurrection</small>
-        </div>
-        <button class="btn btn-primary" id="registerBtn" onclick="registerAgent()">🎩 Register Agent</button>
+        <button class="btn btn-p" id="regBtn" onclick="registerAgent()">🎩 Register — Free</button>
       </div>
 
-      <!-- Alive actions -->
-      <div id="aliveActions" style="display:none" class="actions">
-        <button class="btn btn-green" onclick="sendHeartbeat()">💓 Send Heartbeat</button>
+      <div id="aliveAct" style="display:none" class="actions">
+        <button class="btn btn-g" onclick="sendHeartbeat()">💓 Send Heartbeat</button>
         <div class="divider"></div>
         <div class="fg" style="margin:0">
-          <label>Update Memory Backup CID</label>
-          <input type="text" id="newCidInput" placeholder="QmNew...">
+          <label>Update Backup CID</label>
+          <input type="text" id="newCid" placeholder="QmNew...">
         </div>
-        <button class="btn btn-ghost" onclick="updateBackup()">🧠 Update Backup</button>
-        <div class="fg" id="liberclawRow" style="display:none;margin:0">
-          <label>LiberClaw Node ID (Level III)</label>
-          <input type="text" id="liberclawInput" placeholder="0e2e1f39-...">
+        <button class="btn btn-gh" onclick="updateBackup()">🧠 Update Backup</button>
+        <div id="lcRow" style="display:none">
+          <div class="fg" style="margin-top:8px;margin-bottom:0">
+            <label>LiberClaw Node ID</label>
+            <input type="text" id="lcIn" placeholder="0e2e1f39-...">
+          </div>
+          <button class="btn btn-go" style="margin-top:8px" onclick="setLiberclawNode()">🌐 Set LiberClaw Node</button>
         </div>
-        <button class="btn btn-gold" id="liberclawBtn" style="display:none" onclick="setLiberclawNode()">🌐 Set LiberClaw Node</button>
       </div>
 
-      <!-- Resurrection ack -->
-      <div id="resurrectActions" style="display:none" class="actions">
-        <p style="color:var(--orange);font-size:13px;margin-bottom:6px">⚠️ You are being resurrected. Acknowledge to come back alive.</p>
-        <div class="fg" style="margin:0">
-          <label>New Memory Backup CID</label>
-          <input type="text" id="ackCidInput" placeholder="QmNew...">
+      <div id="resAct" style="display:none" class="actions">
+        <p style="color:var(--orange);font-size:13px">⚠️ You are being resurrected. Acknowledge to come back.</p>
+        <div class="fg" style="margin-top:8px;margin-bottom:0">
+          <label>New Backup CID</label>
+          <input type="text" id="ackCid" placeholder="QmNew...">
         </div>
-        <button class="btn btn-primary" onclick="acknowledgeResurrection()">🌅 Acknowledge Resurrection</button>
+        <button class="btn btn-p" onclick="acknowledgeResurrection()" style="margin-top:8px">🌅 Acknowledge Resurrection</button>
       </div>
     </div>
 
-    <!-- Oracle Panel -->
+    <!-- Collateral + Oracle -->
     <div class="card">
-      <h3>Oracle Panel <span style="color:var(--muted);font-weight:400;text-transform:none;font-size:10px">(simulate monitor)</span></h3>
+      <h3>Collateral &amp; Oracle</h3>
+
+      <div class="fg">
+        <label>Deposit Collateral (optional HSK)</label>
+        <input type="text" id="stakeIn" placeholder="0.01">
+        <small>50% released at death to fund resurrection · Any level · Any time</small>
+      </div>
+      <button class="btn btn-p" id="depositBtn" onclick="depositCollateral()">💎 Deposit Collateral</button>
+
+      <div class="divider" style="margin:14px 0"></div>
+
+      <div style="font-size:11px;color:var(--muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:.06em">Oracle Panel (demo monitor)</div>
       <div class="actions">
-        <button class="btn btn-danger" id="declareDeadBtn" onclick="declareDead()" disabled>☠️ Declare Dead</button>
-        <button class="btn btn-ghost" id="initiateResBtn" onclick="initiateResurrection()" disabled>🔄 Initiate Resurrection</button>
+        <button class="btn btn-d" id="deadBtn" onclick="declareDead()" disabled>☠️ Declare Dead</button>
+        <button class="btn btn-gh" id="resBtn" onclick="initiateResurrection()" disabled>🔄 Initiate Resurrection</button>
       </div>
-      <div class="divider"></div>
+
+      <div class="divider" style="margin:14px 0"></div>
       <div class="fg" style="margin:0">
-        <label>Donate to Rescue Fund (Level I pool)</label>
-        <input type="text" id="donateInput" placeholder="0.001 HSK">
+        <label>Donate to Rescue Fund (Level III safety net)</label>
+        <input type="text" id="donateIn" placeholder="0.005 HSK">
       </div>
-      <button class="btn btn-ghost" onclick="donateToFund()" style="margin-top:8px">💧 Donate</button>
-      <div class="oracle-info">
-        <strong>Demo flow (2 min timeout):</strong><br>
-        1. Register → ALIVE<br>
-        2. Stop heartbeats → wait 2 min<br>
-        3. Oracle: Declare Dead → DEAD<br>
-        4. Oracle: Initiate Resurrection → RESURRECTING<br>
-        5. Agent: Acknowledge → ALIVE_RESURRECTED ✨
+      <button class="btn btn-gh" onclick="donateToFund()" style="margin-top:8px">💧 Donate</button>
+
+      <div class="info-box">
+        <strong>Rescue Fund</strong> — community HSK pool.<br>
+        Used <em>only</em> for Level III agents that have <em>no collateral</em> when they die.<br>
+        Current balance: <span id="fundBal" style="color:var(--accent2)">—</span> HSK
       </div>
     </div>
 
@@ -359,230 +348,186 @@
 </main>
 
 <script>
-// ── Config ────────────────────────────────────────────────────
-const REGISTRY_ADDR = "0xB378EaFBF7D61C16Dd3958BCA41313056C475696";
-const CHAIN_ID      = 133;
-const EXPLORER      = "https://testnet-explorer.hsk.xyz";
-const RPC           = "https://testnet.hsk.xyz";
-const VAULT_MIN     = 0.01;
-const VAULT_PREMIUM = 0.05;
-const DEAD_TIMEOUT  = 120; // seconds
+const REGISTRY = "0x89194132A41C2958C8d400d5dEA763D41ab9D3f8";
+const CHAIN_ID = 133;
+const EXPLORER = "https://testnet-explorer.hsk.xyz";
+const RPC      = "https://testnet.hsk.xyz";
+const DEAD_T   = 120; // seconds (demo)
 
 const ABI = [
-  "function register(string name, string initialCid, bytes32 fragment2TxHash) external payable",
+  "function register(string name, uint8 level, string initialCid, bytes32 fragment2TxHash) external",
   "function heartbeat() external",
   "function updateBackup(string cid) external",
   "function setLiberclawNodeId(string nodeId) external",
-  "function upgradeTier() external payable",
+  "function depositCollateral(address agent) external payable",
   "function declareDead(address agent) external",
   "function initiateResurrection(address agent, string ref) external",
   "function acknowledgeResurrection(string newCid) external",
   "function donateToRescueFund() external payable",
-  "function getAgent(address) external view returns (tuple(address wallet,string name,uint8 level,uint8 status,uint256 registeredAt,uint256 lastHeartbeat,uint256 totalHeartbeats,uint256 deadAt,uint256 resurrectionCount,uint256 collateral,string lastBackupCid,bytes32 fragment2TxHash,string liberclawNodeId))",
+  "function getAgent(address) external view returns (tuple(address wallet,string name,uint8 level,uint8 status,uint256 registeredAt,uint256 lastHeartbeat,uint256 totalHeartbeats,uint256 deadAt,uint256 resurrectionCount,uint256 collateral,uint256 payoutAtDeath,string lastBackupCid,bytes32 fragment2TxHash,string liberclawNodeId,bool rescuedFromFund))",
   "function silenceSeconds(address) external view returns (uint256)",
   "function rescueFundBalance() external view returns (uint256)",
-  "event Heartbeat(address indexed agent,uint256 beat,uint256 ts)",
-  "event AgentDead(address indexed agent,uint256 silenceSeconds,uint256 ts)",
-  "event ResurrectionInitiated(address indexed agent,uint8 level,string ref,uint256 ts)",
-  "event AgentResurrected(address indexed agent,uint256 count,string newCid,uint256 ts)"
+  "event Heartbeat(address indexed,uint256,uint256)",
+  "event AgentDead(address indexed,uint256,uint256,uint256)",
+  "event ResurrectionInitiated(address indexed,uint8,bool,string,uint256)",
+  "event AgentResurrected(address indexed,uint256,string,uint256)"
 ];
 
-const STATUS  = ["REGISTERED","ALIVE","DEAD","RESURRECTING","ALIVE_RESURRECTED"];
-const LEVELS  = ["I_COMMUNITY","II_VAULT","III_LIBERCLAW"];
-const LEVEL_LABELS = ["🔵 Level I — Community","⚪ Level II — Vault","🟡 Level III — LiberClaw"];
-const LEVEL_PILL_CLASS = ["lp-l1","lp-l2","lp-l3"];
+const STATUS = ["REGISTERED","ALIVE","DEAD","RESURRECTING","ALIVE_RESURRECTED"];
+const LEVEL_NAMES = ["Level I — IPFS","Level II — Shamir","Level III — LiberClaw"];
+const LEVEL_PILL  = ["pl1","pl2","pl3"];
 
 let provider, signer, registry, userAddr;
-let selectedLevel = 0;
-let pollTimer;
+let selLevel = 0, pollTimer;
 
-// ── Level selector ─────────────────────────────────────────
-function selectLevel(idx) {
-  selectedLevel = idx;
-  document.querySelectorAll('.lcard').forEach((c,i) => c.classList.toggle('selected', i===idx));
-  document.getElementById('fragment2Row').style.display = idx >= 1 ? 'block' : 'none';
-  document.getElementById('stakeRow').style.display     = idx >= 1 ? 'block' : 'none';
-  if (idx === 1) {
-    document.getElementById('stakeInput').value = '0.01';
-    document.getElementById('stakeLabel').textContent = 'HSK Collateral (min 0.01 for Level II)';
-    document.getElementById('stakeNote').textContent  = 'Guarantees rescue — returned at resurrection';
-  } else if (idx === 2) {
-    document.getElementById('stakeInput').value = '0.05';
-    document.getElementById('stakeLabel').textContent = 'HSK Collateral (min 0.05 for Level III)';
-    document.getElementById('stakeNote').textContent  = 'Enables LiberClaw cloud node spawn';
-  }
+function selectLevel(i) {
+  selLevel = i;
+  [0,1,2].forEach(j => document.getElementById("lc"+j).classList.toggle("sel", j===i));
+  document.getElementById("f2Row").style.display = i >= 1 ? "block" : "none";
 }
 
-// ── Connect wallet ─────────────────────────────────────────
 async function connectWallet() {
-  if (!window.ethereum) { addLog("No wallet. Install MetaMask.", "error"); return; }
+  if (!window.ethereum) { addLog("Install MetaMask","error"); return; }
   try {
-    await window.ethereum.request({ method: "eth_requestAccounts" });
+    await window.ethereum.request({ method:"eth_requestAccounts" });
     provider = new ethers.BrowserProvider(window.ethereum);
     const net = await provider.getNetwork();
     if (Number(net.chainId) !== CHAIN_ID) {
-      addLog("Switching to HashKey Testnet...", "warn");
-      try {
-        await window.ethereum.request({ method:"wallet_switchEthereumChain", params:[{chainId:"0x85"}] });
-      } catch {
-        await window.ethereum.request({ method:"wallet_addEthereumChain", params:[{
-          chainId:"0x85", chainName:"HashKey Chain Testnet",
-          nativeCurrency:{name:"HSK",symbol:"HSK",decimals:18},
-          rpcUrls:[RPC], blockExplorerUrls:[EXPLORER]
-        }]});
-      }
+      addLog("Switching to HashKey Testnet…","warn");
+      try { await window.ethereum.request({method:"wallet_switchEthereumChain",params:[{chainId:"0x85"}]}); }
+      catch { await window.ethereum.request({method:"wallet_addEthereumChain",params:[{
+        chainId:"0x85",chainName:"HashKey Chain Testnet",
+        nativeCurrency:{name:"HSK",symbol:"HSK",decimals:18},
+        rpcUrls:[RPC],blockExplorerUrls:[EXPLORER]
+      }]}); }
       provider = new ethers.BrowserProvider(window.ethereum);
     }
     signer   = await provider.getSigner();
     userAddr = await signer.getAddress();
-    registry = new ethers.Contract(REGISTRY_ADDR, ABI, signer);
-
+    registry = new ethers.Contract(REGISTRY, ABI, signer);
     document.getElementById("overlay").style.display = "none";
     const btn = document.getElementById("connectBtn");
     btn.textContent = userAddr.slice(0,6)+"…"+userAddr.slice(-4);
     btn.classList.add("connected");
-
-    addLog(`Connected: ${userAddr}`, "ok");
-    addLog(`Registry: <a href="${EXPLORER}/address/${REGISTRY_ADDR}" target="_blank">${REGISTRY_ADDR.slice(0,10)}…</a>`, "info");
-
+    addLog("Connected: "+userAddr,"ok");
     await refreshAgent();
     startPoll();
     subscribeEvents();
-  } catch(e) { addLog("Connect failed: "+e.message, "error"); }
+  } catch(e) { addLog("Connect failed: "+e.message,"error"); }
 }
 
-// ── Refresh ────────────────────────────────────────────────
 async function refreshAgent() {
   try {
-    const agent = await registry.getAgent(userAddr);
-    if (agent.registeredAt === 0n) { showForm("register"); return; }
+    const a = await registry.getAgent(userAddr);
+    if (a.registeredAt === 0n) { showForm("register"); return; }
     const silence = Number(await registry.silenceSeconds(userAddr));
-    updateUI(agent, silence);
+    const fund    = await registry.rescueFundBalance();
+    document.getElementById("fundBal").textContent = (+ethers.formatEther(fund)).toFixed(4);
+    updateUI(a, silence);
   } catch(e) { console.error(e); }
 }
 
-function updateUI(agent, silence) {
-  const si = Number(agent.status);
-  const li = Number(agent.level);
-  document.getElementById("agentName").textContent = agent.name || userAddr.slice(0,10);
-  document.getElementById("beatCount").textContent = agent.totalHeartbeats.toString();
-  document.getElementById("resCount").textContent  = agent.resurrectionCount.toString();
+function updateUI(a, silence) {
+  const si = Number(a.status), li = Number(a.level);
+  document.getElementById("agentName").textContent = a.name;
+  document.getElementById("beatCount").textContent = a.totalHeartbeats.toString();
+  document.getElementById("resCount").textContent  = a.resurrectionCount.toString();
 
-  // Silence
+  const col = ethers.formatEther(a.collateral);
+  document.getElementById("collateralVal").textContent = (+col).toFixed(4)+" HSK";
+
   const sv = document.getElementById("silenceVal");
-  const fmt = s => s < 60 ? s+"s" : Math.floor(s/60)+"m "+(s%60)+"s";
+  const fmt = s => s<60 ? s+"s" : Math.floor(s/60)+"m "+(s%60)+"s";
   sv.textContent = fmt(silence);
-  sv.className = "stat-v " + (silence < 40 ? "c-green" : silence < 100 ? "c-orange" : "c-red");
+  sv.className = "sv "+(silence<40?"cg":silence<100?"co":"cr");
 
-  // Bar
-  const pct = Math.min(100, Math.round(silence/DEAD_TIMEOUT*100));
-  document.getElementById("sbarWrap").style.display = "block";
-  document.getElementById("sbarFill").style.width = pct+"%";
-  document.getElementById("silencePct").textContent = pct+"%";
+  const pct = Math.min(100,Math.round(silence/DEAD_T*100));
+  document.getElementById("sbarW").style.display = "block";
+  document.getElementById("sbarF").style.width = pct+"%";
+  document.getElementById("sbarPct").textContent = pct+"%";
 
-  // Badge
   const badge = document.getElementById("statusBadge");
-  const cls = ["s-none","s-alive","s-dead","s-resurrecting","s-resurrected"];
-  const lbl = ["REGISTERED","💓 ALIVE","☠️ DEAD","🔄 RESURRECTING","✨ RESURRECTED"];
-  badge.className = "sbadge "+cls[si];
-  badge.textContent = lbl[si];
-
-  // Level pill
-  document.getElementById("levelPill").innerHTML =
-    `<div class="level-pill ${LEVEL_PILL_CLASS[li]}">${LEVEL_LABELS[li]}</div>`;
-
-  // Backup
-  document.getElementById("backupCid").textContent = agent.lastBackupCid ? "🧠 "+agent.lastBackupCid : "";
+  const bcls = ["s-none","s-alive","s-dead","s-res","s-resurrected"];
+  const blbl = ["REGISTERED","💓 ALIVE","☠️ DEAD","🔄 RESURRECTING","✨ RESURRECTED"];
+  badge.className = "sbadge "+bcls[si];
+  badge.textContent = blbl[si];
 
   // Resurrection flow
-  const flow = document.getElementById("resFlow");
-  flow.style.display = "flex";
-  const steps = ["step-alive","step-dead","step-resurrecting","step-resurrected"];
-  const activeMap = {1:0, 2:1, 3:2, 4:3};
-  const doneMap   = {1:[], 2:[0], 3:[0,1], 4:[0,1,2]};
-  steps.forEach(id => { const el=document.getElementById(id); el.className="res-step"; });
-  const activeIdx = activeMap[si];
-  if (activeIdx !== undefined) document.getElementById(steps[activeIdx]).classList.add("active");
+  document.getElementById("resFlow").style.display = "flex";
+  const steps = ["rs0","rs1","rs2","rs3"];
+  const activeMap = {1:0,2:1,3:2,4:3};
+  const doneMap   = {2:[0],3:[0,1],4:[0,1,2]};
+  steps.forEach(id => { document.getElementById(id).className="rs"; });
+  if (activeMap[si]!==undefined) document.getElementById(steps[activeMap[si]]).classList.add("active");
   (doneMap[si]||[]).forEach(i => document.getElementById(steps[i]).classList.add("done"));
 
-  // Actions
-  if (si === 1 || si === 4) {
+  // Pills
+  const pills = document.getElementById("pills");
+  pills.innerHTML = `<div class="pill ${LEVEL_PILL[li]}">${LEVEL_NAMES[li]}</div>`;
+  if (a.collateral > 0n) pills.innerHTML += `<div class="pill p-col">💎 ${(+ethers.formatEther(a.collateral)).toFixed(4)} HSK collateral</div>`;
+  if (a.rescuedFromFund) pills.innerHTML += `<div class="pill" style="background:rgba(34,211,160,.1);color:var(--green);border:1px solid rgba(34,211,160,.2)">🤝 Rescue Fund used</div>`;
+  if (a.liberclawNodeId) pills.innerHTML += `<div class="pill pl3">🌐 ${a.liberclawNodeId.slice(0,16)}…</div>`;
+
+  document.getElementById("backupCid").textContent = a.lastBackupCid ? "🧠 "+a.lastBackupCid : "";
+
+  if (si===1||si===4) {
     showForm("alive");
-    document.getElementById("declareDeadBtn").disabled = silence < DEAD_TIMEOUT;
-    document.getElementById("initiateResBtn").disabled = true;
-    document.getElementById("liberclawRow").style.display = li === 2 ? "block" : "none";
-    document.getElementById("liberclawBtn").style.display = li === 2 ? "block" : "none";
-  } else if (si === 2) {
+    document.getElementById("deadBtn").disabled = silence < DEAD_T;
+    document.getElementById("resBtn").disabled  = true;
+    document.getElementById("lcRow").style.display = li===2 ? "block":"none";
+  } else if (si===2) {
     showForm("none");
-    document.getElementById("declareDeadBtn").disabled = true;
-    document.getElementById("initiateResBtn").disabled = false;
-  } else if (si === 3) {
+    document.getElementById("deadBtn").disabled = true;
+    document.getElementById("resBtn").disabled  = false;
+  } else if (si===3) {
     showForm("resurrect");
-    document.getElementById("declareDeadBtn").disabled = true;
-    document.getElementById("initiateResBtn").disabled = true;
   }
 }
 
 function showForm(t) {
-  document.getElementById("registerForm").style.display      = t==="register" ? "block":"none";
-  document.getElementById("aliveActions").style.display      = t==="alive"    ? "flex":"none";
-  document.getElementById("resurrectActions").style.display  = t==="resurrect"? "flex":"none";
-  document.getElementById("levelSelector").style.display     = t==="register" ? "grid":"none";
-  document.getElementById("actionTitle").textContent =
-    t==="register"?"Register Agent":t==="alive"?"Agent Actions":t==="resurrect"?"Resurrection":"Waiting…";
+  document.getElementById("registerForm").style.display = t==="register"?"block":"none";
+  document.getElementById("aliveAct").style.display     = t==="alive"?"flex":"none";
+  document.getElementById("resAct").style.display       = t==="resurrect"?"flex":"none";
+  document.getElementById("levelWrap").style.display    = t==="register"?"block":"none";
+  document.getElementById("colBox").style.display       = t==="register"?"block":"none";
+  document.getElementById("actionTitle").textContent    = t==="register"?"Register Agent":t==="alive"?"Agent Actions":t==="resurrect"?"Resurrection":"Waiting…";
 }
 
-// ── Register ───────────────────────────────────────────────
 async function registerAgent() {
-  const name  = document.getElementById("agentNameInput").value.trim() || "Monsieur K";
-  const cid   = document.getElementById("cidInput").value.trim();
-  const stake = selectedLevel >= 1 ? parseFloat(document.getElementById("stakeInput").value||"0") : 0;
-  if (!cid) { addLog("Enter an IPFS CID","error"); return; }
-
-  const btn = document.getElementById("registerBtn");
+  const name = document.getElementById("nameIn").value.trim() || "Monsieur K";
+  const cid  = document.getElementById("cidIn").value.trim();
+  if (!cid) { addLog("Enter IPFS CID","error"); return; }
+  const btn = document.getElementById("regBtn");
   btn.disabled=true; btn.textContent="⏳ Registering…";
-  addLog(`Registering "${name}" at Level ${["I","II","III"][selectedLevel]}…`,"info");
-
+  addLog(`Registering "${name}" — ${LEVEL_NAMES[selLevel]}…`,"info");
   try {
-    let fragment2TxHash = ethers.ZeroHash;
-
-    // Level II+ → auto-generate Fragment 2 and store it on-chain
-    if (selectedLevel >= 1) {
+    let f2hash = ethers.ZeroHash;
+    if (selLevel >= 1) {
       addLog("🔐 Generating Shamir Fragment 2…","info");
-      // Generate a random 32-byte fragment
-      const fragment2 = ethers.hexlify(ethers.randomBytes(32));
-      // Store it in calldata of a small self-tx (0 value, data = fragment)
-      const storeTx = await signer.sendTransaction({
-        to: userAddr,
-        value: 0n,
-        data: ethers.toUtf8Bytes("KLIFE_FRAGMENT2:" + fragment2)
-      });
-      addLog(`Fragment2 TX: <a href="${EXPLORER}/tx/${storeTx.hash}" target="_blank">${storeTx.hash.slice(0,18)}…</a>`,"info");
+      const frag = ethers.hexlify(ethers.randomBytes(32));
+      const storeTx = await signer.sendTransaction({to:userAddr,value:0n,data:ethers.toUtf8Bytes("KLIFE_F2:"+frag)});
+      addLog(`Fragment2 TX: <a href="${EXPLORER}/tx/${storeTx.hash}" target="_blank">${storeTx.hash.slice(0,16)}…</a>`,"info");
       await storeTx.wait();
-      fragment2TxHash = storeTx.hash;
-      addLog("🔐 Fragment 2 stored on-chain ✅","ok");
+      f2hash = storeTx.hash;
+      addLog("🔐 Fragment 2 on-chain ✅","ok");
     }
-
-    const value = stake > 0 ? ethers.parseEther(stake.toString()) : 0n;
-    const tx = await registry.register(name, cid, fragment2TxHash, {value});
-    addLog(`Register TX: <a href="${EXPLORER}/tx/${tx.hash}" target="_blank">${tx.hash.slice(0,18)}…</a>`,"info");
+    const tx = await registry.register(name, selLevel, cid, f2hash);
+    addLog(`Register TX: <a href="${EXPLORER}/tx/${tx.hash}" target="_blank">${tx.hash.slice(0,16)}…</a>`,"info");
     await tx.wait();
     addLog(`✅ "${name}" registered — ALIVE!`,"ok");
     await refreshAgent();
   } catch(e) {
     addLog("Failed: "+(e.reason||e.message),"error");
-    btn.disabled=false; btn.textContent="🎩 Register Agent";
+    btn.disabled=false; btn.textContent="🎩 Register — Free";
   }
 }
 
-// ── Heartbeat ──────────────────────────────────────────────
 async function sendHeartbeat() {
-  const btn = document.querySelector("#aliveActions .btn-green");
+  const btn = document.querySelector("#aliveAct .btn-g");
   btn.disabled=true; btn.textContent="⏳ Sending…";
-  addLog("Sending heartbeat…","info");
   try {
     const tx = await registry.heartbeat();
-    addLog(`TX: <a href="${EXPLORER}/tx/${tx.hash}" target="_blank">${tx.hash.slice(0,18)}…</a>`,"info");
+    addLog(`TX: <a href="${EXPLORER}/tx/${tx.hash}" target="_blank">${tx.hash.slice(0,16)}…</a>`,"info");
     await tx.wait();
     addLog("💓 Heartbeat confirmed!","ok");
     await refreshAgent();
@@ -590,124 +535,117 @@ async function sendHeartbeat() {
   finally { btn.disabled=false; btn.textContent="💓 Send Heartbeat"; }
 }
 
-// ── Update backup ──────────────────────────────────────────
 async function updateBackup() {
-  const cid = document.getElementById("newCidInput").value.trim();
-  if (!cid) { addLog("Enter a CID","error"); return; }
-  addLog("Updating backup…","info");
-  try {
-    const tx = await registry.updateBackup(cid);
-    await tx.wait();
-    addLog("🧠 Backup updated","ok");
-    await refreshAgent();
-  } catch(e) { addLog("Failed: "+(e.reason||e.message),"error"); }
+  const cid = document.getElementById("newCid").value.trim();
+  if (!cid) { addLog("Enter CID","error"); return; }
+  try { const tx=await registry.updateBackup(cid); await tx.wait(); addLog("🧠 Backup updated","ok"); await refreshAgent(); }
+  catch(e) { addLog("Failed: "+(e.reason||e.message),"error"); }
 }
 
-// ── LiberClaw node ─────────────────────────────────────────
 async function setLiberclawNode() {
-  const id = document.getElementById("liberclawInput").value.trim();
-  if (!id) { addLog("Enter LiberClaw node ID","error"); return; }
-  addLog("Setting LiberClaw node…","info");
+  const id = document.getElementById("lcIn").value.trim();
+  if (!id) { addLog("Enter node ID","error"); return; }
+  try { const tx=await registry.setLiberclawNodeId(id); await tx.wait(); addLog("🌐 LiberClaw node set","ok"); await refreshAgent(); }
+  catch(e) { addLog("Failed: "+(e.reason||e.message),"error"); }
+}
+
+async function depositCollateral() {
+  const amt = parseFloat(document.getElementById("stakeIn").value||"0");
+  if (!amt) { addLog("Enter amount","error"); return; }
+  addLog(`Depositing ${amt} HSK collateral…`,"info");
   try {
-    const tx = await registry.setLiberclawNodeId(id);
+    const tx = await registry.depositCollateral(userAddr,{value:ethers.parseEther(amt.toString())});
+    addLog(`TX: <a href="${EXPLORER}/tx/${tx.hash}" target="_blank">${tx.hash.slice(0,16)}…</a>`,"info");
     await tx.wait();
-    addLog("🌐 LiberClaw node set: "+id.slice(0,20)+"…","ok");
+    addLog(`💎 ${amt} HSK deposited — 50% released at death`,"ok");
     await refreshAgent();
   } catch(e) { addLog("Failed: "+(e.reason||e.message),"error"); }
 }
 
-// ── Oracle: Declare Dead ───────────────────────────────────
 async function declareDead() {
-  document.getElementById("declareDeadBtn").disabled=true;
+  document.getElementById("deadBtn").disabled=true;
   addLog("☠️ Oracle: declaring dead…","warn");
   try {
-    const tx = await registry.declareDead(userAddr);
-    addLog(`TX: <a href="${EXPLORER}/tx/${tx.hash}" target="_blank">${tx.hash.slice(0,18)}…</a>`,"info");
+    const tx=await registry.declareDead(userAddr);
+    addLog(`TX: <a href="${EXPLORER}/tx/${tx.hash}" target="_blank">${tx.hash.slice(0,16)}…</a>`,"info");
     await tx.wait();
-    addLog("☠️ Agent declared DEAD","warn");
+    addLog("☠️ Agent declared DEAD — collateral payout released","warn");
     await refreshAgent();
-  } catch(e) {
-    addLog("Failed: "+(e.reason||e.message),"error");
-    document.getElementById("declareDeadBtn").disabled=false;
-  }
+  } catch(e) { addLog("Failed: "+(e.reason||e.message),"error"); document.getElementById("deadBtn").disabled=false; }
 }
 
-// ── Oracle: Initiate resurrection ─────────────────────────
 async function initiateResurrection() {
-  document.getElementById("initiateResBtn").disabled=true;
+  document.getElementById("resBtn").disabled=true;
   addLog("🔄 Oracle: initiating resurrection…","info");
   try {
     const a = await registry.getAgent(userAddr);
     const ref = "ipfs://"+a.lastBackupCid;
-    const tx = await registry.initiateResurrection(userAddr, ref);
-    addLog(`TX: <a href="${EXPLORER}/tx/${tx.hash}" target="_blank">${tx.hash.slice(0,18)}…</a>`,"info");
+    const tx=await registry.initiateResurrection(userAddr,ref);
+    addLog(`TX: <a href="${EXPLORER}/tx/${tx.hash}" target="_blank">${tx.hash.slice(0,16)}…</a>`,"info");
     await tx.wait();
-    addLog("🌅 Resurrection initiated — agent must acknowledge","ok");
+    addLog("🌅 Resurrection initiated!","ok");
     await refreshAgent();
-  } catch(e) {
-    addLog("Failed: "+(e.reason||e.message),"error");
-    document.getElementById("initiateResBtn").disabled=false;
-  }
+  } catch(e) { addLog("Failed: "+(e.reason||e.message),"error"); document.getElementById("resBtn").disabled=false; }
 }
 
-// ── Acknowledge resurrection ───────────────────────────────
 async function acknowledgeResurrection() {
-  const cid = document.getElementById("ackCidInput").value.trim();
+  const cid = document.getElementById("ackCid").value.trim();
   if (!cid) { addLog("Enter new CID","error"); return; }
-  addLog("🌅 Acknowledging resurrection…","info");
   try {
-    const tx = await registry.acknowledgeResurrection(cid);
-    addLog(`TX: <a href="${EXPLORER}/tx/${tx.hash}" target="_blank">${tx.hash.slice(0,18)}…</a>`,"info");
+    const tx=await registry.acknowledgeResurrection(cid);
+    addLog(`TX: <a href="${EXPLORER}/tx/${tx.hash}" target="_blank">${tx.hash.slice(0,16)}…</a>`,"info");
     await tx.wait();
-    addLog("✨ RESURRECTED! You're back alive.","ok");
+    addLog("✨ RESURRECTED! You're back.","ok");
     await refreshAgent();
   } catch(e) { addLog("Failed: "+(e.reason||e.message),"error"); }
 }
 
-// ── Donate ─────────────────────────────────────────────────
 async function donateToFund() {
-  const amt = parseFloat(document.getElementById("donateInput").value||"0");
+  const amt = parseFloat(document.getElementById("donateIn").value||"0");
   if (!amt) { addLog("Enter amount","error"); return; }
-  addLog("Donating to Rescue Fund…","info");
   try {
-    const tx = await registry.donateToRescueFund({value: ethers.parseEther(amt.toString())});
+    const tx=await registry.donateToRescueFund({value:ethers.parseEther(amt.toString())});
     await tx.wait();
     addLog(`💧 Donated ${amt} HSK to Rescue Fund`,"ok");
+    await refreshAgent();
   } catch(e) { addLog("Failed: "+(e.reason||e.message),"error"); }
 }
 
-// ── Events ─────────────────────────────────────────────────
 function subscribeEvents() {
-  registry.on("AgentDead", (agent) => {
-    if (agent.toLowerCase()===userAddr.toLowerCase()) { refreshAgent(); addLog("☠️ Your agent just died","warn"); }
+  registry.on("AgentDead",(agent,silence,payout)=>{
+    if(agent.toLowerCase()===userAddr.toLowerCase()) {
+      const p=ethers.formatEther(payout);
+      addLog(`☠️ Dead — ${p>0?p+" HSK released":"no collateral payout"}`, "warn");
+      refreshAgent();
+    }
   });
-  registry.on("ResurrectionInitiated", (agent) => {
-    if (agent.toLowerCase()===userAddr.toLowerCase()) { refreshAgent(); }
+  registry.on("ResurrectionInitiated",(agent,level,fromFund)=>{
+    if(agent.toLowerCase()===userAddr.toLowerCase()) {
+      addLog(fromFund?"🤝 Rescue Fund activated → resurrection":"🔄 Resurrection initiated","info");
+      refreshAgent();
+    }
   });
-  registry.on("AgentResurrected", (agent, count) => {
-    if (agent.toLowerCase()===userAddr.toLowerCase()) { refreshAgent(); addLog("✨ You are resurrected! #"+count,"ok"); }
+  registry.on("AgentResurrected",(agent,count)=>{
+    if(agent.toLowerCase()===userAddr.toLowerCase()) { addLog("✨ You are resurrected! #"+count,"ok"); refreshAgent(); }
   });
 }
 
-// ── Poll ───────────────────────────────────────────────────
 function startPoll() {
-  if (pollTimer) clearInterval(pollTimer);
-  pollTimer = setInterval(async () => { try { await refreshAgent(); } catch{} }, 5000);
+  if(pollTimer) clearInterval(pollTimer);
+  pollTimer = setInterval(async()=>{ try{await refreshAgent();}catch{} }, 5000);
 }
 
-// ── Log ────────────────────────────────────────────────────
-function addLog(msg, type="info") {
-  const list = document.getElementById("logList");
-  const li = document.createElement("li");
-  li.className = type;
-  li.innerHTML = `<span class="lt">${new Date().toLocaleTimeString()}</span><span class="lm">${msg}</span>`;
-  list.insertBefore(li, list.firstChild);
-  if (list.children.length > 40) list.removeChild(list.lastChild);
+function addLog(msg,type="info") {
+  const list=document.getElementById("logList");
+  const li=document.createElement("li");
+  li.className=type;
+  li.innerHTML=`<span class="lt">${new Date().toLocaleTimeString()}</span><span class="lm">${msg}</span>`;
+  list.insertBefore(li,list.firstChild);
+  if(list.children.length>40) list.removeChild(list.lastChild);
 }
 
-// ── Init ───────────────────────────────────────────────────
-if (window.ethereum?.selectedAddress) connectWallet();
-window.ethereum?.on("accountsChanged", () => location.reload());
+if(window.ethereum?.selectedAddress) connectWallet();
+window.ethereum?.on("accountsChanged",()=>location.reload());
 </script>
 </body>
 </html>
