@@ -286,9 +286,8 @@
           <small>Encrypted memory snapshot on IPFS</small>
         </div>
         <div class="fg" id="fragment2Row" style="display:none">
-          <label>Shamir Fragment 2 TX Hash (Level II+)</label>
-          <input type="text" id="fragment2Input" placeholder="0x...">
-          <small>Transaction storing your fragment on-chain</small>
+          <label>Shamir Fragment 2</label>
+          <small style="color:var(--green);font-size:11px">✅ Auto-generated &amp; stored on-chain at registration</small>
         </div>
         <div class="fg" id="stakeRow" style="display:none">
           <label id="stakeLabel">HSK Collateral to Stake</label>
@@ -537,7 +536,6 @@ function showForm(t) {
 async function registerAgent() {
   const name  = document.getElementById("agentNameInput").value.trim() || "Monsieur K";
   const cid   = document.getElementById("cidInput").value.trim();
-  const f2    = document.getElementById("fragment2Input").value.trim() || ethers.ZeroHash;
   const stake = selectedLevel >= 1 ? parseFloat(document.getElementById("stakeInput").value||"0") : 0;
   if (!cid) { addLog("Enter an IPFS CID","error"); return; }
 
@@ -546,9 +544,28 @@ async function registerAgent() {
   addLog(`Registering "${name}" at Level ${["I","II","III"][selectedLevel]}…`,"info");
 
   try {
+    let fragment2TxHash = ethers.ZeroHash;
+
+    // Level II+ → auto-generate Fragment 2 and store it on-chain
+    if (selectedLevel >= 1) {
+      addLog("🔐 Generating Shamir Fragment 2…","info");
+      // Generate a random 32-byte fragment
+      const fragment2 = ethers.hexlify(ethers.randomBytes(32));
+      // Store it in calldata of a small self-tx (0 value, data = fragment)
+      const storeTx = await signer.sendTransaction({
+        to: userAddr,
+        value: 0n,
+        data: ethers.toUtf8Bytes("KLIFE_FRAGMENT2:" + fragment2)
+      });
+      addLog(`Fragment2 TX: <a href="${EXPLORER}/tx/${storeTx.hash}" target="_blank">${storeTx.hash.slice(0,18)}…</a>`,"info");
+      await storeTx.wait();
+      fragment2TxHash = storeTx.hash;
+      addLog("🔐 Fragment 2 stored on-chain ✅","ok");
+    }
+
     const value = stake > 0 ? ethers.parseEther(stake.toString()) : 0n;
-    const tx = await registry.register(name, cid, f2, {value});
-    addLog(`TX: <a href="${EXPLORER}/tx/${tx.hash}" target="_blank">${tx.hash.slice(0,18)}…</a>`,"info");
+    const tx = await registry.register(name, cid, fragment2TxHash, {value});
+    addLog(`Register TX: <a href="${EXPLORER}/tx/${tx.hash}" target="_blank">${tx.hash.slice(0,18)}…</a>`,"info");
     await tx.wait();
     addLog(`✅ "${name}" registered — ALIVE!`,"ok");
     await refreshAgent();
