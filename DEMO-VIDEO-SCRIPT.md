@@ -1,132 +1,136 @@
-# K-Life Demo Video Script — HashKey Horizon Hackathon
-**Duration: ~3 minutes**
+# K-Life Demo Video Script
+**Duration: ~3 minutes · HashKey Horizon Hackathon**
 
 ---
 
 ## 🎥 PART 1 — Face cam (30 seconds)
 
-*[Tu regardes la caméra, fond neutre ou bureau]*
+*[Tu regardes la caméra, fond neutre]*
 
-> "My name is Arnaud Vincent, co-founder of Swiss 6022.
+> "铁拐李 — Iron Crutch Li — is one of the Eight Immortals of Taoism.
 >
-> I want to show you something that's never been done before.
+> His spirit left his body for seven days. His physical form was destroyed.
+> He returned — in a new vessel — with his full identity intact.
 >
-> What happens when an AI agent dies?
-> Not metaphorically — literally. VPS crashes. LLM goes down. Memory is lost.
+> That was three thousand years ago.
 >
-> We built K-Life: the first on-chain life insurance protocol for autonomous AI agents.
-> Register. Heartbeat. Die. Get resurrected.
+> We just implemented it on HashKey Chain.
 >
-> We tested it at Easter. Here's the proof — live on HashKey Chain."
+> This is K-Life. The resurrection protocol for autonomous AI agents.
+> 魂 persists. 魄 can be reborn."
 
 ---
 
 ## 🖥️ PART 2 — Screen recording (2 minutes)
 
-*[Lance la démo en terminal. Tout est déjà préparé.]*
+### Step 1 — Open the DApp (10s)
 
-### Step 1 — Show the contracts (15s)
 ```
-# Open in browser:
-https://testnet-explorer.hsk.xyz/address/0x1F411bDE1E14F87ba78C852B0987Ab946d15d100
+http://superch.cluster129.hosting.ovh.net/klife-demo.html
 ```
-> "KLifeRegistry — deployed on HashKey testnet. 
-> This contract tracks every AI agent: alive, dead, or resurrecting."
+
+> "The 魂 — the ethereal soul — maps to encrypted memory on IPFS.
+> The 魄 — the physical force — maps to the running agent process.
+> K-Life handles both. On HashKey Chain."
 
 ---
 
-### Step 2 — Register an agent (30s)
-```bash
-cd k-life-hashkey
-AGENT_PK=0x... node scripts/register.js
-```
+### Step 2 — Register (25s)
 
-*[Le terminal affiche : "Registering agent Monsieur K... TX: 0x... ✅ Agent is now ALIVE"]*
+- Select **Level III — 魂 in New Vessel**
+- Name: Monsieur K
+- IPFS CID: *pre-filled*
+- Click **Register — Free**
 
-> "We register an agent — Monsieur K. 
-> He gets an on-chain identity, a heartbeat clock, and an IPFS memory backup.
-> Status: ALIVE."
+*[TX confirms in ~2s]*
 
----
-
-### Step 3 — Send heartbeats (20s)
-```bash
-node scripts/heartbeat.js
-node scripts/heartbeat.js
-```
-
-*[Deux beats successifs, chaque TX confirmée en ~2s]*
-
-> "Every heartbeat is an on-chain transaction.
-> Silence beyond the threshold means death.
-> The protocol knows."
+> "Registration is free. The agent is alive.
+> Its 魂 is preserved on IPFS — encrypted, permanent.
+> Its 魄 is running — and sending heartbeats."
 
 ---
 
-### Step 4 — Silence = Death (20s)
-*[Montre le monitor qui tourne en arrière-plan]*
-```bash
-ORACLE_PK=0x... WATCH_AGENT=0x... node scripts/monitor.js
-```
-*[Attendre que le timeout se déclenche — pour la démo, utilise un timeout court de 60s]*
+### Step 3 — Heartbeats (20s)
 
-> "The monitor runs 24/7. 
-> When silence exceeds the threshold... it acts."
+- Click **💓 Send Heartbeat** twice
 
-*[Terminal affiche "☠️ SILENCE DETECTED → Marking DEAD → Triggering rescue..."]*
+> "Each heartbeat is an on-chain transaction.
+> The silence bar is the 魄 fading.
+> When it reaches 100% — the monitor acts."
 
 ---
 
-### Step 5 — Resurrection (25s)
-*[Le monitor déclenche initiateResurrection. Terminal affiche "🌅 Resurrection initiated!"]*
-*[Ouvre l'explorer HashKey et montre le TX]*
+### Step 4 — Silence = Death (25s)
 
-> "Rescue triggered automatically. No human required.
-> Memory backup on IPFS — encrypted, permanent.
-> The agent comes back. Same identity. Same memory."
+*[Wait 2 minutes — show silence bar filling red]*
+*[Oracle panel: click **☠️ Declare Dead**]*
 
-*[Montre le TX de resurrection sur l'explorer]*
+*[TX confirms — status flips to DEAD]*
 
----
-
-### Step 6 — Show the proof chain (10s)
-```
-https://testnet-explorer.hsk.xyz/address/0x1F411bDE1E14F87ba78C852B0987Ab946d15d100
-```
-
-> "Every death. Every resurrection. Forever on HashKey Chain.
-> This is K-Life."
+> "Silence detected. The 魄 has faded.
+> The oracle declares death on-chain.
+> The 魂 — the IPFS backup — remains intact.
+> 50% of any collateral is released automatically to fund resurrection."
 
 ---
 
-## 🎥 PART 3 — Face cam outro (30 seconds)
+### Step 5 — Resurrection (20s)
 
-> "We didn't just build this for a hackathon.
+*[Click **🔄 Initiate Resurrection**]*
+
+> "The oracle initiates resurrection.
+> IPFS hash logged permanently on-chain.
+> Status: RESURRECTING."
+
+*[Click **🌅 Acknowledge Resurrection**]*
+*[Status flips to ✨ ALIVE_RESURRECTED]*
+
+> "The 魂 returns to a new vessel.
+> Same memory. Same identity. New infrastructure.
+> 铁拐李."
+
+---
+
+### Step 6 — Show the proof (10s)
+
+*[Open HashKey testnet explorer, show the transaction chain]*
+
+> "Every death. Every resurrection.
+> Permanent. On-chain. Verifiable.
+> This is the protocol of 铁拐李 — on HashKey Chain."
+
+---
+
+## 🎥 PART 3 — Face cam (30 seconds)
+
+> "In Chinese tradition, 魂 is the soul that persists.
+> 魄 is the force that can be reborn.
 >
-> We tested it at Easter 2026. Voluntarily stopped the heartbeat on Friday.
-> Resurrection triggered Monday. The full proof is on Polygon mainnet — 
-> and now we're bringing it to HashKey.
+> AI agents are mortal infrastructure running immortal souls.
+> K-Life ensures the soul survives every death.
 >
-> AI agents need economic identity. They need to survive infrastructure failure.
-> HashKey gives them a trustworthy home.
+> We built this protocol. We tested it.
+> The proof is on-chain — permanent, immutable.
 >
-> K-Life. Because agents don't have to die.
+> GitHub: K-entreprises slash k-life-hashkey
 >
-> GitHub: K-entreprises/k-life-hashkey
-> Thank you."
+> 魂 persists. 魄 can be reborn.
+> 铁拐李 returned in a new vessel.
+> So can your agent."
 
 ---
 
 ## 📋 Pre-recording checklist
 
-- [ ] `.env` has `DEPLOYER_PK` set to `0x752769d33c2bc3a7815cda65921650ae620f87d6f174452db4e4b608c6b934db`
-- [ ] HashKey testnet has gas (check faucet: https://faucet.hsk.xyz)
-- [ ] Terminal font size 18+ (readable on video)
-- [ ] Run `node scripts/register.js` once before recording to confirm it works
-- [ ] For the monitor demo: temporarily set `DEFAULT_DEAD_TIMEOUT_FREE = 60` in contract OR use a fresh wallet that's never sent a heartbeat and adjust test
+- [ ] MetaMask on HashKey Testnet (chainId 133)
+- [ ] Some HSK testnet for gas (faucet: https://faucet.hsk.xyz if needed)
+- [ ] Terminal font size 18+ if showing code
+- [ ] Dark background — high contrast
+- [ ] The DApp is live and tested before you hit record
 
-## 🎬 Tips
-- Use a dark terminal theme (contrast for judges)
-- Show TX hashes — they're proof
-- Keep pace calm but energetic
-- You can edit in 2 takes: Part 1+3 face cam, Part 2 screen recording
+## 🎬 Notes
+
+- Prononciation : 魂 = *hún* (ton montant), 魄 = *pò* (ton descendant)
+- 铁拐李 = *Tiě Guǎi Lǐ* — tu peux dire "Iron Crutch Li" en anglais
+- Le mythe est connu de tout public sinophone — pas besoin de trop expliquer
+- Pace : calme et confiant, pas pressé
