@@ -7,8 +7,8 @@
  *   (defaults to deployer wallet if AGENT_PK not set)
  */
 
-const { ethers } = require("ethers");
-require("dotenv").config();
+import { ethers } from "ethers";
+import "dotenv/config";
 
 // ── Config ───────────────────────────────────────────────────
 const RPC       = "https://testnet.hsk.xyz";
@@ -69,12 +69,8 @@ async function main() {
   const receipt = await tx.wait();
   console.log(`   ✅ Confirmed! Block ${receipt.blockNumber}`);
 
-  // Send first heartbeat to become ALIVE
-  console.log(`\n💓 Sending first heartbeat...`);
-  const hbTx = await registry.heartbeat();
-  console.log(`   TX: ${hbTx.hash}`);
-  await hbTx.wait();
-  console.log(`   ✅ Agent is now ALIVE`);
+  // Note: register() already sets status=ALIVE + beat #1 on-chain
+  console.log(`\n✅ Agent is ALIVE (register() includes first heartbeat)`);
 
   // Final status
   const agent = await registry.getAgent(wallet.address);
