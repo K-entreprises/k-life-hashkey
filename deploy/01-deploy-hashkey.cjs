@@ -24,7 +24,7 @@ async function main() {
   // 2. Deploy KLifeRegistry
   console.log("\n2. Deploying KLifeRegistry...");
   const Registry = await hre.ethers.getContractFactory("KLifeRegistry");
-  const registry = await Registry.deploy();
+  const registry = await Registry.deploy(deployer.address, deployer.address); // oracle + owner = deployer
   await registry.waitForDeployment();
   const registryAddr = await registry.getAddress();
   console.log("   KLifeRegistry deployed:", registryAddr);
@@ -32,7 +32,7 @@ async function main() {
   // 3. Deploy KLifeRescueFund
   console.log("\n3. Deploying KLifeRescueFund...");
   const RescueFund = await hre.ethers.getContractFactory("KLifeRescueFund");
-  const rescueFund = await RescueFund.deploy(mockHSKAddr, registryAddr, deployer.address);
+  const rescueFund = await RescueFund.deploy(mockHSKAddr, registryAddr, deployer.address, deployer.address); // token + registry + oracle + owner
   await rescueFund.waitForDeployment();
   const rescueFundAddr = await rescueFund.getAddress();
   console.log("   KLifeRescueFund deployed:", rescueFundAddr);

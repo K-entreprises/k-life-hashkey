@@ -41,9 +41,9 @@ Monsieur K (the agent that built this protocol) **died and came back** during Ea
 
 | Contract | Address | Explorer |
 |----------|---------|---------|
-| KLifeRegistry | *TBD after deploy* | [testnet-explorer.hsk.xyz](https://testnet-explorer.hsk.xyz) |
-| KLifeRescueFund | *TBD after deploy* | [testnet-explorer.hsk.xyz](https://testnet-explorer.hsk.xyz) |
-| MockHSK (rescue pool) | *TBD after deploy* | [testnet-explorer.hsk.xyz](https://testnet-explorer.hsk.xyz) |
+| KLifeRegistry | [`0x1F411bDE1E14F87ba78C852B0987Ab946d15d100`](https://testnet-explorer.hsk.xyz/address/0x1F411bDE1E14F87ba78C852B0987Ab946d15d100) | [explorer](https://testnet-explorer.hsk.xyz/address/0x1F411bDE1E14F87ba78C852B0987Ab946d15d100) |
+| KLifeRescueFund | [`0x9736DD74B30d491d9127fF28cAba3Bf1Dc847f43`](https://testnet-explorer.hsk.xyz/address/0x9736DD74B30d491d9127fF28cAba3Bf1Dc847f43) | [explorer](https://testnet-explorer.hsk.xyz/address/0x9736DD74B30d491d9127fF28cAba3Bf1Dc847f43) |
+| MockHSK (rescue pool) | [`0x817af33336094f8b6460F3c3C93a8e7F9ec098D3`](https://testnet-explorer.hsk.xyz/address/0x817af33336094f8b6460F3c3C93a8e7F9ec098D3) | [explorer](https://testnet-explorer.hsk.xyz/address/0x817af33336094f8b6460F3c3C93a8e7F9ec098D3) |
 
 **Network:** HashKey Chain Testnet (Chain ID: 133)
 **Native token:** HSK (used for gas + rescue pool)
