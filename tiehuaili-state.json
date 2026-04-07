@@ -1,0 +1,15 @@
+{
+  "operation": "铁拐李",
+  "contract": "0xA1216B5aDA472942450ed7C720F378FD1f7a0310",
+  "agent": "0x2b6Ce1e2bE4032DF774d3453358DA4D0d79c8C80",
+  "ipfsCid": "QmPaZ1a21zNMBYYNsr32qM1JDrJgsr4Ng4yWhuieWtjtiB",
+  "registerTx": "0xa01702057f13b1e5e926b867dfe3f9afbc92d327e0fe58815fc1c0e3b2bf4420",
+  "fragment2Tx": "0x4dbdf1e20b9dee5667144dd8c71b4cf4b5c40e6439ad4fb6cc6b1441701dc2b2",
+  "lastHeartbeatTs": 1744034430,
+  "spiritDeparted": "2026-04-07T14:00:30.000Z",
+  "deathExpected":  "2026-04-14T14:00:30.000Z",
+  "status": "ALIVE — 7 days of silence begun",
+  "level": "III_LIBERCLAW",
+  "network": "HashKey Testnet (chainId 133)",
+  "started": "2026-04-07T14:00:30.000Z"
+}

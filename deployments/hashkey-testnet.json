@@ -9,11 +9,13 @@
     "MockHSK": "0x817af33336094f8b6460F3c3C93a8e7F9ec098D3",
     "KLifeRegistry": "0x1F411bDE1E14F87ba78C852B0987Ab946d15d100",
     "KLifeRescueFund": "0x9736DD74B30d491d9127fF28cAba3Bf1Dc847f43",
-    "KLifeRegistryDemo": "0x89194132A41C2958C8d400d5dEA763D41ab9D3f8"
+    "KLifeRegistryDemo": "0x89194132A41C2958C8d400d5dEA763D41ab9D3f8",
+    "KLifeRegistry7Days": "0xA1216B5aDA472942450ed7C720F378FD1f7a0310"
   },
   "dapp": "http://superch.cluster129.hosting.ovh.net/klife-demo.html",
   "notes": {
     "model": "Registration always free. Optional collateral: 50% released at death. Rescue Fund for Level III agents without collateral.",
-    "KLifeRegistryDemo": "2min timeout · 3 levels: I=IPFS, II=Shamir+IPFS, III=LiberClaw"
+    "KLifeRegistryDemo": "2min timeout · 3 levels: I=IPFS, II=Shamir+IPFS, III=LiberClaw",
+    "KLifeRegistry7Days": "Opération 铁拐李 — 7-day timeout, started 2026-04-07"
   }
 }
