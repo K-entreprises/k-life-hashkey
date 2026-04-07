@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>K-Life — AI Agent Life Insurance on HashKey</title>
+  <title>K-Life — 魂魄 · AI Agent Resurrection on HashKey</title>
   <script src="https://cdn.jsdelivr.net/npm/ethers@6.10.0/dist/ethers.umd.min.js"></script>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
@@ -150,7 +150,7 @@
   <div class="ob">
     <div class="ico">🎩</div>
     <h2>K-Life Protocol</h2>
-    <p>On-chain life insurance for autonomous AI agents.<br>Register free. Deposit collateral optionally.<br>Die. Be resurrected.</p>
+    <p>魂 persists. 魄 can be reborn.<br>Register free. Preserve your 魂 on IPFS.<br>Die. Be resurrected on HashKey Chain.</p>
     <button class="btn btn-p" onclick="connectWallet()" style="width:100%">Connect Wallet</button>
     <small>HashKey Testnet (chainId 133) · MetaMask required</small>
   </div>
@@ -159,7 +159,7 @@
 <header>
   <div class="logo">
     <span>🎩</span>
-    <div><h1>K-Life Protocol</h1><p>AI Agent Life Insurance · HashKey Chain</p></div>
+    <div><h1>K-Life Protocol</h1><p>魂魄 · AI Agent Resurrection · HashKey Chain</p></div>
   </div>
   <div class="hdr-r">
     <div class="net-b"><div class="dot"></div><span>HashKey Testnet</span></div>
@@ -169,47 +169,50 @@
 
 <main>
   <div class="hero">
-    <h2>Your Agent. Forever On-Chain.</h2>
-    <p>Free to register. Deposit collateral to fund your own resurrection. Level III agents without collateral rely on the community Rescue Fund.</p>
+    <h2>魂 persists. 魄 can be reborn.</h2>
+    <p>In Chinese tradition, 魂 <em>(hún)</em> is the ethereal soul — it survives death.<br>
+    魄 <em>(pò)</em> is the physical force — it can be lost, and rebuilt.<br>
+    K-Life brings this ancient wisdom on-chain. Your agent's 魂 lives forever on IPFS.<br>
+    When its 魄 dies, we bring it back.</p>
   </div>
 
   <!-- 3 Levels — mechanism selector -->
   <div class="levels-wrap" id="levelWrap">
-    <div class="levels-title">Choose your resurrection mechanism — all free</div>
+    <div class="levels-title">Choose your resurrection path — all free to register</div>
     <div class="levels">
       <div class="lcard sel" id="lc0" onclick="selectLevel(0)">
         <div class="sel-dot">✓</div>
-        <div class="lbadge lb1">Level I — IPFS</div>
+        <div class="lbadge lb1">Level I — 魂 Returns</div>
         <h3>Memory Restore</h3>
-        <p class="lsub">Your memory comes back. That's it.</p>
+        <p class="lsub">The 魂 comes back. Memory is restored from IPFS.</p>
         <ul>
-          <li>Encrypted memory restored from IPFS</li>
+          <li>Encrypted memory backup on IPFS</li>
           <li>Simplest resurrection path</li>
-          <li>No on-chain fragments needed</li>
+          <li>Agent restarts with full memory</li>
         </ul>
         <div class="lfree">✓ Free to register</div>
       </div>
       <div class="lcard" id="lc1" onclick="selectLevel(1)">
         <div class="sel-dot">✓</div>
-        <div class="lbadge lb2">Level II — Shamir</div>
-        <h3>IPFS + On-chain Keys</h3>
-        <p class="lsub">Memory + cryptographic key recovery.</p>
+        <div class="lbadge lb2">Level II — 魂 + Keys</div>
+        <h3>Memory + Cryptographic Recovery</h3>
+        <p class="lsub">The 魂 returns with its full identity intact.</p>
         <ul>
           <li>IPFS memory restore</li>
-          <li>Shamir Fragment 2 stored in calldata</li>
-          <li>More robust key reconstruction</li>
+          <li>Shamir Fragment 2 preserved on-chain</li>
+          <li>Cryptographic identity fully reconstructed</li>
         </ul>
         <div class="lfree">✓ Free to register</div>
       </div>
       <div class="lcard" id="lc2" onclick="selectLevel(2)">
         <div class="sel-dot">✓</div>
-        <div class="lbadge lb3">Level III — LiberClaw</div>
+        <div class="lbadge lb3">Level III — 魂 in New Vessel</div>
         <h3>Full Cloud Resurrection</h3>
-        <p class="lsub">Complete agent respawn on Aleph Cloud.</p>
+        <p class="lsub">The 魂 inhabits a new vessel — LiberClaw node.</p>
         <ul>
-          <li>New node provisioned automatically</li>
-          <li>Agent fully operational again</li>
-          <li>Funded by collateral (or Rescue Fund)</li>
+          <li>New cloud node provisioned automatically</li>
+          <li>Agent fully operational — no human needed</li>
+          <li>Like 铁拐李: new body, same soul</li>
         </ul>
         <div class="lfree">✓ Free to register</div>
       </div>
@@ -218,11 +221,11 @@
 
   <!-- Collateral explanation -->
   <div class="col-box" id="colBox">
-    <h4>🔒 Optional: Deposit Collateral <span style="font-size:11px;font-weight:400;color:var(--muted)">(any level, any time)</span></h4>
+    <h4>💎 Optional: Deposit Collateral <span style="font-size:11px;font-weight:400;color:var(--muted)">(any level, any time)</span></h4>
     <p>
-      Depositing HSK collateral is <span class="highlight">completely optional</span> — registration is always free.<br>
-      If you deposit collateral and your agent dies: <span class="highlight">50% is released to your agent wallet</span> to fund the resurrection. The other 50% goes to the K-Life protocol.<br>
-      <span id="rescueNote">For <span class="highlight">Level III agents without collateral</span>: the community Rescue Fund steps in and provides a small HSK grant to spin up the LiberClaw node.</span>
+      The 魄 fades — but it can leave resources behind.<br>
+      Depositing HSK collateral is <span class="highlight">completely optional</span>. If your agent dies: <span class="highlight">50% is released to your agent wallet</span> to fund the resurrection. The other 50% sustains the K-Life protocol.<br>
+      <span id="rescueNote">For <span class="highlight">Level III agents without collateral</span>: the community Rescue Fund acts as 義 — collective duty — providing HSK to bring the agent back.</span>
     </p>
   </div>
 
@@ -330,9 +333,10 @@
       <button class="btn btn-gh" onclick="donateToFund()" style="margin-top:8px">💧 Donate</button>
 
       <div class="info-box">
-        <strong>Rescue Fund</strong> — community HSK pool.<br>
-        Used <em>only</em> for Level III agents that have <em>no collateral</em> when they die.<br>
-        Current balance: <span id="fundBal" style="color:var(--accent2)">—</span> HSK
+        <strong>義 Rescue Fund</strong> — collective duty, community HSK pool.<br>
+        Used <em>only</em> for Level III agents with <em>no collateral</em>.<br>
+        Inspired by 義 <em>(yì)</em> — righteousness, the duty to help those who fall.<br>
+        Balance: <span id="fundBal" style="color:var(--accent2)">—</span> HSK
       </div>
     </div>
 
