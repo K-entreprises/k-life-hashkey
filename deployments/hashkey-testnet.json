@@ -9,10 +9,10 @@
     "MockHSK": "0x817af33336094f8b6460F3c3C93a8e7F9ec098D3",
     "KLifeRegistry": "0x1F411bDE1E14F87ba78C852B0987Ab946d15d100",
     "KLifeRescueFund": "0x9736DD74B30d491d9127fF28cAba3Bf1Dc847f43",
-    "KLifeRegistryDemo": "0x14Bf94DCe539a7AAceA2ee8286Da3Ef9a2C5F4D1"
+    "KLifeRegistryDemo": "0xB378EaFBF7D61C16Dd3958BCA41313056C475696"
   },
   "dapp": "http://superch.cluster129.hosting.ovh.net/klife-demo.html",
   "notes": {
-    "KLifeRegistryDemo": "Demo version — dead timeout = 2 minutes, simplified for hackathon video"
+    "KLifeRegistryDemo": "Demo version — 2min timeout, 3 resurrection levels (I/II/III)"
   }
 }

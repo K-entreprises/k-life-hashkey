@@ -7,8 +7,8 @@
  *   AGENT_PK=0x... node scripts/heartbeat.js --watch   (continuous, every 30s)
  */
 
-const { ethers } = require("ethers");
-require("dotenv").config();
+import { ethers } from "ethers";
+import "dotenv/config";
 
 const RPC      = "https://testnet.hsk.xyz";
 const REGISTRY = "0x1F411bDE1E14F87ba78C852B0987Ab946d15d100";
